@@ -1,4 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-    <p>To jest strona z ekstrakcją opinii.</p>
+    <h2>Ekstrakcja opinii</h2>
+
+    <form method="post" action="" class="container">
+        <div class="form-group"></div>
+            <label for="product_id">Produkt z Ceneo.pl</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="product_id" placeholder="Podaj kod produktu"><br> <label>Kod produktu musi zawierać 5-10 cyfr</label><br>
+            <button type="submit" class="btn btn-outline-light">Pobierz opinie</button>
+    </form>
 {% endblock content %}

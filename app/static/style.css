@@ -47,6 +47,7 @@ footer {
 
 .button {
   display: block;
+  text-decoration: none;
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -64,4 +65,8 @@ footer {
 
 .button:active {
   background-color: #8e8e8e;
+}
+
+label {
+  font-size: 12 px;
 }

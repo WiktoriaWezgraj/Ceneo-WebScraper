@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <title>Ceneo.pl Web Scraper</title>
 </head>
@@ -10,11 +11,10 @@
     <div class = "menu">
         <h1>Ceneo.pl Web Scraper </h1>
         <div class="button-container">
-            <a href="." class="button">Author</a>
-            <a href="." class="button">Extract</a>
-            <a href="." class="button">Index</a>
-            <a href="." class="button">Product</a>
-            <a href="." class="button">Products</a>
+            <a href="{{url_for('index')}}" class="button">Strona główna</a>
+            <a href="{{url_for('extract')}}" class="button">Ekstrakcja opinii</a>
+            <a href="{{url_for('author')}}" class="button">Autor</a>
+            <a href="{{url_for('products')}}" class="button">Lista produktów</a>
         </div>
     </div>
     <div class="section">
