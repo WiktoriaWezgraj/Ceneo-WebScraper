@@ -1,11 +1,21 @@
 {% extends "base.html" %}
+{% block title %}
+    Ekstrakcja opinii
+{% endblock title %}
 {% block content %}
-    <h2>Ekstrakcja opinii</h2>
+    {% if error is defined %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
 
     <form method="post" action="" class="container">
         <div class="form-group"></div>
             <label for="product_id">Produkt z Ceneo.pl</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" name="product_id" placeholder="Podaj kod produktu"><br> <label>Kod produktu musi zawierać 5-10 cyfr</label><br>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="product_id" placeholder="Podaj kod produktu" required><br> <label>Kod produktu musi zawierać 5-10 cyfr</label><br>
             <button type="submit" class="btn btn-outline-light">Pobierz opinie</button>
     </form>
 {% endblock content %}
