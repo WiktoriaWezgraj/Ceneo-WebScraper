@@ -1,3 +1,5 @@
+
+
 from app import app
 from app import utils
 import pandas as pd
@@ -31,6 +33,7 @@ def extract():
                     response = requests.get(url)
                     page_dom = BeautifulSoup(response.text, "html.parser")
                     opinions = page_dom.select("div.js_product-review")
+                    opinion = page_dom.select_one("div.j_product-review") 
                     for opinion in opinions:
                         single_opinion = {
                             key: utils.extract(opinion, *value)
@@ -73,7 +76,7 @@ def products():
     products_list = [filename.split(".")[0] for filename in os.listdir("app/data/opinions")]
     products = []
     for product_id in products_list:
-        with open(f"app/data/opinions/{product_id}.json", "r", encoding="UTF-8") as jf:
+        with open(f"app/data/opinions/{product_id}.json", "r", encoding = "UTF-8") as jf:
             products.append(json.load(jf))
     return render_template("products.html", products=products)
 
@@ -83,7 +86,10 @@ def author():
 
 @app.route('/product/<product_id>')
 def product(product_id):
-    return render_template("product.html", product_id=product_id)
+    opinions = None
+    with open(f"app/data/opinions/{product_id}.json", "r" ,encoding="UTF-8") as jf:
+        opinions = json.load(jf)
+    return render_template("product.html", product_id = product_id, opinions = opinions)
 
 @app.route('/product/download_json/<product_id>')
 def download_json(product_id):

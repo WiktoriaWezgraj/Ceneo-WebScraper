@@ -1,7 +1,17 @@
 {% extends "base.html" %}
-{% block title %}
-    Produkt {{product_id}}
-{% endblock title %}
 {% block content %}
-    <p>To jest strona z opiniami o produkcie {{product_id}}.</p>
-{% endblock content %}
+    <p>This is {{product_id}} product file</p>
+    <div class="btn-group">
+        <a href="{{url_for('download_json', product_id=product_id)}}" class="btn btn-outline-dark">JSON</a>
+        <a href="{{url_for('download_csv', product_id=product_id)}}" class="btn btn-outline-dark">CSV</a>
+        <a href="{{url_for('download_xlsx', product_id=product_id)}}" class="btn btn-outline-dark">XLSX</a>
+    </div>
+    {% for opinion in opinions %}
+            <li>
+                <p>Autor: {{opinion.author}}</p>
+                <p>Ocena: {{opinion.rating}}</p>
+                <p>Rekomendacja: {{opinion.recommendation}}</p>
+                <p>Opinia: {{opinion.content}}</p>
+            </li>
+        {% endfor %}
+{% endblock %}
